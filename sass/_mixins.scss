@@ -1,0 +1,9 @@
+// 0 - 600px
+// 600 - 900px
+// 900 - 1200
+// 1800
+
+@mixin respod-phone {
+  @media (max-width: 600px) {
+    @content
+}

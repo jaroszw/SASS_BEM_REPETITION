@@ -5,10 +5,15 @@
 
 .search {
   flex: 0 0 40%;
-
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light2);
+  }
 
   &__input {
     font-family: inherit;
@@ -24,20 +29,20 @@
 
     &:focus {
       outline: none;
-      width: 100%;
-      background-color: var(---color-grey-dark1);
+      width: 85%;
+      background-color: var(--color-grey-light2);
       color: var(--color-grey-dark1);
     }
 
-    &::-webkit-inpit-placeholder {
+    &::-webkit-input-placeholder {
       font-weight: 100;
       color: var(--color-grey-light1);
-      font-size: 5rem;
+      font-size: 2rem;
     }
   }
 
   &__input:focus + &__button {
-    background-color: var(--color-grey-light3);
+    background-color: var(--color-grey-light2);
   }
 
   &__button {
@@ -111,24 +116,33 @@
 }
 
 .side-nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem;
+
+  @media only screen and(max-width: $bp-medium) {
+    display: flex;
+    margin: 0;
+  }
 
   &__item {
     position: relative;
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+
+      @media only screen and(max-width: $bp-medium) {
+        margin: 0;
+      }
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
     }
   }
 
   &__item:before {
-    content: "";
+    content: '';
     position: absolute;
     right: 0;
     left: 0;
@@ -163,6 +177,16 @@
 
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 2rem 0.5rem;
+    }
   }
 
   &__icon {
@@ -170,6 +194,13 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-small) {
+      margin: 0;
+      margin-bottom: 0.7;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -178,6 +209,10 @@
   text-align: center;
   color: var(--color-grey-dark4);
   padding: 2.5rem;
+
+  @media only screen and(max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 .gallery {
@@ -200,6 +235,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__stars {
@@ -235,16 +275,28 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0rem 1.2rem;
+    }
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -3px;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
     font-size: 0.8rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -315,7 +367,7 @@
   }
 
   &__item:before {
-    content: "";
+    content: '';
     display: inline-block;
     height: 1rem;
     width: 1rem;
@@ -326,10 +378,10 @@
     // background-size: cover;
 
     background-color: var(--color-primary);
-    -webkit-mask-image: url("../img/chevron-thin-right.svg");
+    -webkit-mask-image: url('../img/chevron-thin-right.svg');
     -webkit-mask-size: cover;
 
-    mask-image: url("../img/chevron-thin-right.svg");
+    mask-image: url('../img/chevron-thin-right.svg');
     mask-size: cover;
   }
 }
@@ -353,7 +405,7 @@
     border: 2px solid #fff;
 
     &:not(:last-child) {
-      margin-right: -1.15rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -366,6 +418,10 @@
   position: relative;
   overflow: hidden;
 
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
   &__text {
     margin-bottom: 2rem;
     z-index: 10;
@@ -409,7 +465,7 @@
 
   // https://css-tricks.com/snippets/html/glyphs/
   &::before {
-    content: "\201C";
+    content: '\201C';
     position: absolute;
     font-size: 20rem;
     top: -2.75rem;
@@ -424,6 +480,10 @@
 .cta {
   padding: 3.5rem 0;
   text-align: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem 0;
+  }
 
   &__book-now {
     text-transform: uppercase;
